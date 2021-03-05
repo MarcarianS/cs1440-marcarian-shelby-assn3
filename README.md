@@ -53,7 +53,7 @@ time so that you can meet the deadline.
 * The grading gift can only be used for the 2nd delivery milestone.
 
 
-### Design phase due Friday, October 23rd
+### Design phase due Friday, March 12th
 
 This milestone includes the following components:
 
@@ -71,7 +71,7 @@ I recommend [https://www.draw.io/](https://www.draw.io/) for drawing your UML di
 -   Represent correct UML, at least as far as was discussed in class
 
 
-### Implementation phase due Friday, October 30th
+### Implementation phase due Friday, March 19th
 
 This submission includes the following components:
 
