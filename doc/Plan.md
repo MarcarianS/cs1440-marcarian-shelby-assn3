@@ -38,8 +38,8 @@ X
 	deck is no longer remmebered in the program
 	takes you back tot the main menu
 
-##User Interface Class
-###Run()
+## User Interface Class
+### Run()
 * Input: nothing
 * internal data
 -print welcome message
@@ -49,7 +49,7 @@ X
 -if keep going is false, close the program (sys.exit(1)?)
 * output: prints welcome message, returns nothing
 
-###__createDeck()
+### __createDeck()
 * Input: nothing
 * internal Data:
 -prompt the user for card size, max number on card, and 
@@ -61,7 +61,7 @@ be able to access the card objects
 -call __deck menu to display the deck menu
 * Output: Nothing
 
-###__deckMenu()
+### __deckMenu()
 * Input: nothing
 * Intternal Data: 
 -create a menu object header Deck
@@ -70,13 +70,13 @@ be able to access the card objects
 command.
 * Output: prints menu to user through other methods
 
-###__printCard()
+### __printCard()
 * Input: nothing
 * INternal Data: 
 -call __getnumberinpout to determine which index to print
 * Output: calls a print method, returns nothing
 
-###__saveDeck()
+### __saveDeck()
 * INput: nothing
 * Internal Data: 
 -get the file name as a string from the user
@@ -87,7 +87,7 @@ command.
 -tels the user it is done
 * Output: prints the deck to a file, returns nothing
 
-###__getNumberInput(desc, int, numOfCards)
+### __getNumberInput(desc, int, numOfCards)
 * Input:  a string descriptor of what is beign returned, a 
 number, and the number of cards in the deck.
 * Internal Data: 
@@ -99,7 +99,7 @@ try again
 -NOT SURE WHAT SECOND ARGUMENT IS YET
 * Output: returns n integer, the id of the card to print
 
-###__getStringInput(desc)
+### __getStringInput(desc)
 * input: string to prompt the user for input of a file name
 * INternal Data: 
 -use the desc to prompt the user for a  file name
@@ -107,20 +107,20 @@ try again
 * Outptu: string ( a file name)
 
 
-##Card Class
-###getId()
+## Card Class
+### getId()
 * INput: nothing
 * internal Data: 
 -return the idnum
 * Ouput: idnum of the card
 
-###getSize()
+### getSize()
 * Input: nothing
 * internal Data: 
 -return the card size (one dimension of the card)
 * Output: return size of the card
 
-###print(file)
+### print(file)
 * Input: optional name of a file (f not given, sys.out)
 * internal Data: 
 -print the current card id to the file specified
@@ -129,14 +129,14 @@ try again
 * Output: prints a card to the file given
 
 
-##Deck Class
-###getCrdCount()
+## Deck Class
+### getCrdCount()
 * input: npthing
 * internal data: 
 -return the cardcount variable
 * output: return cardCount
 
-###getCard(n)
+### getCard(n)
 * Input: the card object that the user wants to print out
 * Internal Data: 
 -card is initially none
@@ -147,7 +147,7 @@ is taken from m cards, a list of the card objects in deck
 -card is returned
 * Output: returns card object to print out
 
-###print(file, index)
+### print(file, index)
 * Input: name of a file in string format, index of card to
 print
 * internal Data: 
@@ -158,9 +158,9 @@ print
 -if indx is not default, print only the specified card
 
 
-##Menu Class
+## Menu Class
 
-###addOption(command, description)
+### addOption(command, description)
 * Input: command (a single uppercase letter that represents a
 command) and a descripton (what the command does)
 * INternal Data: 
@@ -170,7 +170,7 @@ object)
 -add one to the menu options count
 * Output: nothing
 
-###__isValidComand(command)
+### __isValidComand(command)
 * Input: command (single uppercase letter)
 * Internal Data: 
 -set variable isValid to false
@@ -180,7 +180,7 @@ object)
 -return the value of isvalid (boolean)
 * Output: boolean is valid
 
-###getOption(optionIndex)
+### getOption(optionIndex)
 * Input: index integer, what option you want to test.
 * Internal Data: 
 -initialize the option to none value
@@ -189,19 +189,19 @@ to that index in the list of objects
 -whether it's none or a value, option is returned
 * Output: returns whatever option ends up as. can be none
 
-###getHeader()
+### getHeader()
 * Input: nothing
 * INternal Data:
 -return the header string for this menu object
 * Output: header string returned
 
-###getOptionCount()
+### getOptionCount()
 * Input: nothing
 * INternal Data:
 -return the size of the option count for this menu object
 * Output: option count as an integer is returned
 
-###show()
+### show()
 * input: nothing
 * INterna data:
 -intialize a command and keepgoing variables to empty string
@@ -218,11 +218,30 @@ and its desc.
 -once a valid command is given, return that command
 * Ouput: prints options to user and returns command given.
 
-##Menu Optoion CLass
+## Menu Optoion CLass
 
-##Number Set Class
-		
+### getCommand()
+* Input: nothing
+* Interal Data: 
+-return the command given to the menu option object
+* Output: returns single character command
+
+### getDescription()
+* Input: nothing
+* Interal Data:
+-return the description given to the menu option object
+* Output: returns string of the description for the menu option
+
+## Number Set Class
+
+### getSize()
+* INput: nothing
+* internal data: 
+-returns the size of the card (this is the square root of 
+the size of the numberse
+-the number set is all of the numbers present on the card		
 # 2.  Functional Examples
+
 
 **Design a process for obtaining the output from the input.  Consider both *good*
 and *bad* inputs.  Find or create examples of both kinds of input.**
