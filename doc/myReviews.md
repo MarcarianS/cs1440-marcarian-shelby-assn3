@@ -19,3 +19,22 @@ class boxes in a way to not include a large white space in the corner. Though
 even without that, it is great and readable how it is now. Great work!
 
 
+The first thing that I noticed that I would suggest is to use a frame that 
+outlines your entire UML diagram, this not only would clearly show that every 
+class is contained in what you're labeling "bingo" but It also helps the layout 
+of your UML diagram. Just with the formatting adding a frame also adds a border 
+around your class boxes so they aren't pushed right up against the walls of 
+your UML diagram. The next thing I noticed is that there is no connection 
+between Card and NumberSet, I think that needs to be in there since cards 
+contain NumberSets. So adding a relation that each Card has a NumberSet within 
+in it would be important. I really like how you connected NumberSet to 
+UserInterface though, I can see the logic behind that and can understand where 
+you are coming from and I might even go add that to my UML now. All of your 
+individual class diagrams look properly set up and correctly show the 
+information inside. One thing I would suggest is that instead of labeling 
+m_cards as an array in your Deck class, to label it as Card[] to show that it 
+is an array containing Card objects. Otherwise upon looking at it I can't 
+really see anything else that I would change, I really also like your use of 
+the arrows like Erik talked about in the lecture today, adding that sense of 
+direction to the diagram is super helpful and makes it a lot easier to read. 
+Great job!
