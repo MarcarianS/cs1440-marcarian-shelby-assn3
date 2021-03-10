@@ -3,12 +3,15 @@ import Menu
 
 
 class UserInterface():
+    #Implies can be constructed
+    # there can bea  single ui obj that is independent from other ui obj
     def __init__(self):
         pass
-
+    # this method will modify the specific ui obj one at a time
     def run(self):
         """Present the main menu to the user and repeatedly prompt for a valid command"""
         print("Welcome to the Bingo! Deck Generator\n")
+        # local variable, only belongs to run(). self would make the variable belong to the object
         menu = Menu.Menu("Main")
         menu.addOption("C", "Create a new deck")
         
@@ -62,6 +65,6 @@ class UserInterface():
         if fileName != "":
             # TODO: open a file and pass to currentDeck.print()
             outputStream = open(fileName, 'w')
-            self.__m_currentDeck.print(outputStream)
+            self.__m_currentDeck.print(outputStream) # This now belongs to the individual class object
             outputStream.close()
             print("Done!")

@@ -4,47 +4,118 @@
 
 # 0.  From Problem Analysis to Data Definitions
 
-**Problem Analysis is the process of understanding the problem the software
-will address and to document in detail what the software system needs to do.
-In the real world this phase demands close interaction between developers and
-the client.  Ideally, end-users of the system are interviewed for their input.**
-
-**In this course you will receive detailed requirements in the form of the
-assignment description.  I stand-in for the client and end-users when you have
-questions concerning their needs and desires.**
-
-**In this phase of the design process you should use [The Feynman
-Technique](https://www.youtube.com/watch?v=tkm0TNFzIeg) To ensure that you
-understand what is being asked of you.**
-
-**The output of this phase of the development process is a restatement of the
-requirements in your own words.  Putting new problems into your own words will
-help you identify your "Known knowns" and your "known unknowns".**
-
-**As part of your restatement of the problem identify information that must be
-represented and decide how to represent in the chosen programming language.**
-
-**Formulate data definitions and illustrate them with examples.**
-
+create a deck of bingo cards, with number of cards based on user input and
+size based on user input.
+Design a user friendly manual and user interface. Manual will give instructions 
+on how to use each command. User interface will promt for those commands , 
+looping until the user gives valid input.
+The cards can't have the same number on them twice, and each card must be kept 
+according to its number so it can be called on again.
+The user must be able to print the deck ou tto the screen or a file, or a select 
+card to the screen.
 
 # 1.  System Analysis
 
-**Analyze the flow of data throughout the program.  Does the program get input
-from the user?  If so, does it come from interactive prompts or from
-command-line arguments?  Is data incorporated from a file on the disk, from a
-database or from the internet?**
+Main menu:
+The user is presented with options 
+C will create a deck
+X will exit the program
 
-**How is output given?  On the screen in the form of text or graphics?  Are
-output files created, and what form do they take?**
+another menu from C
+enter card size
+maximum number present on card
+number of cards generated
 
-**Identify the non-trivial formulas you need to create.  If there aren't any then
-state "no formulas" in this section.**
+new menu
+P print a card
+	Must provide the number id of the card 
+	menu PDSX is displayed again
+D display the whole deck
+S save the deck to a file
+	Must provide a file name
+	will notify the user when finished
+X
+	deck is no longer remmebered in the program
+	takes you back tot the main menu
 
-**State what kind of data each desired function consumes and produces.  Formulate
-a concise description of what the function computes.  Define a stub that lives
-up to the signature.**
+##User Interface Class
+###Run()
+* Input: nothing
+* internal data
+-print welcome message
+-create menu object (local) with the header Main
+-add the C option to the list of display options
+-while we keep going, if the user enters C move on
+-if keep going is false, close the program (sys.exit(1)?)
+* output: prints welcome message, returns nothing
 
+###__createDeck()
+* Input: nothing
+* internal Data:
+-prompt the user for card size, max number on card, and 
+number of cards
+-for i in number of cards given, create a card object with 
+the user in put and i as idnum
+-create a deck object with input from user. deck needs to 
+be able to access the card objects
+-call __deck menu to display the deck menu
+* Output: Nothing
 
+###__deckMenu()
+* Input: nothing
+* Intternal Data: 
+-create a menu object header Deck
+-add the print, display, and save options to the menu options
+-print out the apporpriate response based on the user input 
+command.
+* Output: prints menu to user through other methods
+
+###__printCard()
+* Input: nothing
+* INternal Data: 
+-call __getnumberinpout to determine which index to print
+* Output: calls a print method, returns nothing
+
+###__saveDeck()
+* INput: nothing
+* Internal Data: 
+-get the file name as a string from the user
+-if no file name is given, display the menu again
+-if there is a filename given, open file as "write"
+-prints the current deck to the file 
+-close the file
+-tels the user it is done
+* Output: prints the deck to a file, returns nothing
+
+###__getNumberInput(desc, int, numOfCards)
+* Input:  a string descriptor of what is beign returned, a 
+number, and the number of cards in the deck.
+* Internal Data: 
+-print the description to prompt the user for input
+-if the number input by the user is smaller than the
+number of cards given, return that id
+-if its out of range (too big or less than 1) have the user
+try again
+-NOT SURE WHAT SECOND ARGUMENT IS YET
+* Output: returns n integer, the id of the card to print
+
+###__getStringInput(desc)
+* input: string to prompt the user for input of a file name
+* INternal Data: 
+-use the desc to prompt the user for a  file name
+-return that string
+* Outptu: string ( a file name)
+
+##Card Class
+
+##Deck Class
+
+##Menu Class
+
+##Menu Optoion CLass
+
+##Number Set Class
+		
 # 2.  Functional Examples
 
 **Design a process for obtaining the output from the input.  Consider both *good*
