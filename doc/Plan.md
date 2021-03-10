@@ -106,11 +106,117 @@ try again
 -return that string
 * Outptu: string ( a file name)
 
+
 ##Card Class
+###getId()
+* INput: nothing
+* internal Data: 
+-return the idnum
+* Ouput: idnum of the card
+
+###getSize()
+* Input: nothing
+* internal Data: 
+-return the card size (one dimension of the card)
+* Output: return size of the card
+
+###print(file)
+* Input: optional name of a file (f not given, sys.out)
+* internal Data: 
+-print the current card id to the file specified
+-coe in the formatting for the card here
+-if size is odd, add a free space
+* Output: prints a card to the file given
+
 
 ##Deck Class
+###getCrdCount()
+* input: npthing
+* internal data: 
+-return the cardcount variable
+* output: return cardCount
+
+###getCard(n)
+* Input: the card object that the user wants to print out
+* Internal Data: 
+-card is initially none
+-the number given is decreaseed by one to account for the 
+list index
+-if the number given is in the proper range, the card object
+is taken from m cards, a list of the card objects in deck
+-card is returned
+* Output: returns card object to print out
+
+###print(file, index)
+* Input: name of a file in string format, index of card to
+print
+* internal Data: 
+-if indx is default, print out every card 
+-assign card object to variable c
+-call print on c
+-print a new space
+-if indx is not default, print only the specified card
+
 
 ##Menu Class
+
+###addOption(command, description)
+* Input: command (a single uppercase letter that represents a
+command) and a descripton (what the command does)
+* INternal Data: 
+-if the fields are not left empty, add the tuple (comm,desc)
+to the list of menu options(only availible to specific menu
+object)
+-add one to the menu options count
+* Output: nothing
+
+###__isValidComand(command)
+* Input: command (single uppercase letter)
+* Internal Data: 
+-set variable isValid to false
+-if user selected X, its valid
+-if not, check the command against the list of options.
+-if the command is in that list, its valid
+-return the value of isvalid (boolean)
+* Output: boolean is valid
+
+###getOption(optionIndex)
+* Input: index integer, what option you want to test.
+* Internal Data: 
+-initialize the option to none value
+-if option index is in the proper range, the option is set
+to that index in the list of objects
+-whether it's none or a value, option is returned
+* Output: returns whatever option ends up as. can be none
+
+###getHeader()
+* Input: nothing
+* INternal Data:
+-return the header string for this menu object
+* Output: header string returned
+
+###getOptionCount()
+* Input: nothing
+* INternal Data:
+-return the size of the option count for this menu object
+* Output: option count as an integer is returned
+
+###show()
+* input: nothing
+* INterna data:
+-intialize a command and keepgoing variables to empty string
+and true
+-while that keepgoing var is true, set local option list to
+and empty string, print a newline and the header
+-for the length of the menu objects option count, local 
+option is ith entry of the self option list.
+-if getting the option didn't return none, print the command
+and its desc.
+-add that command and x to the local command optionlist
+-print the prompt for a command
+-if the input is not in the command list (call isvalid)
+-once a valid command is given, return that command
+* Ouput: prints options to user and returns command given.
 
 ##Menu Optoion CLass
 
