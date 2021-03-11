@@ -15,12 +15,12 @@
 * __Note:__ Unless you enter one of the provided options, you will be prompted for a command repeatedly until you enter a command that the program recognizes.
 * Entering 'X' will leave the program.
 * Entering 'C' will prompt you for a few numbers with the allowed range immediately following.
-* Follow the prompts, and provide a card size, the maximum number you wish your cards to conatain, and the numebr of cards you wish to create.
-* If you enter a number that is *not* within the displayed range, you will be reminded of the range and asked for another number, until you enter a valid number.
+* Follow the prompts. Provide a card size, the maximum number you wish your cards to conatain, and the numebr of cards you wish to create.
+* If you enter a number that is *not* within the displayed range, you will be reminded of the range and asked for another command, until you enter a valid number.
 
 ### Navigating the Deck Menu
 
-* Next, the program will display the Deck menu, with options for your Deck.
+* Next, the program will display the Deck menu. You should see a new list of commands (P, D, S, X) and a short description of each.
 * If you choose 'P', a single card of your choice will be printed to the screen.
 * To determine which card to print, you will be prompted to enter the ID number of the card you wish to see. The range given corresponds to the number of cards you generated, and once again will continuously prompt you to choose a number until you provide valid input.
 * If you choose 'D', the entire deck will be printed to the screen.
@@ -45,14 +45,14 @@
 ### How Do I Recover From Invalid Input?
 
 * If you have entered invalid input, you will be prompted to enter another command.
-* Read through the option list (displayed immediately after the prompt) and note that if you have not entered your input exactly as shown (e.g. no extra punctuation or characters) it will be invalid.
+* Read through the option list (displayed immediately after the prompt) and note that unless you have entered your input exactly as shown (e.g. no extra punctuation or characters) it will be invalid.
 * To move forward at any point in the program, you must enter valid input.
 
 ## List of Commands
 
-* C - Creates a new deck; will prompt you for input to specify the dimensions of the card.
-* Numbers - Only provide numbers when prompted for numbers. These will specify dimensions of the cards.
-* P - Prints a single card to the screen (You will be prompted for the number ID of the card you wish to see).
+* C - Creates a new deck (You will be prompted for numeric input to specify the dimensions of the card.)
+* Numbers - Only provide non-zero integers when prompted for numbers. These will specify dimensions of the cards.
+* P - Prints a single card to the screen (You will be prompted for the number ID of the card you wish to see.)
 * D - Displays the entire deck to the screen.
 * S - Saves the entire deck to a file (You will be prompted for a file name. If the file does not exist, it will be created for you.)
 * X - From the Deck Menu, this will return you to the Main Menu and delete whatever deck you may have created. 
