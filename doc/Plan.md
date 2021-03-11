@@ -234,12 +234,52 @@ and its desc.
 
 ## Number Set Class
 
+### NumberSet(size)
+-The constructor needs to make a set of numbers in the range
+of the max given by the user
 ### getSize()
 * INput: nothing
 * internal data: 
--returns the size of the card (this is the square root of 
-the size of the numberse
 -the number set is all of the numbers present on the card		
+-getsize from Card, square it
+* Output: returns the number of numbers that can be in the NS
+
+### get(index)
+* input: index, the number entry that you want the val of
+* Internal Data: 
+-call CreateSet to get the list of random numebrs
+-get the indexth entry from what createSet returns
+return that value
+* Output: returns the value of the indexth entry of a card
+
+### randomize()
+* Input: nothing
+* internal Data: 
+-for each index of the set, generate a random number and swap 
+the value of the curretn index with that random index
+* OUtput: nothing
+
+### getNext()
+* intput: nothing
+* internal data: 
+-keep track of how many times its been called
+-the number of times it's been called is the index of the set 
+to return
+-add a self. variable to the constructor and increase by one 
+every time getNext is called
+-if that count goes above size^2, return none
+* OUtput: an integer until the list is exhausted; then None
+
+### createDeck(size, max)
+* input: size, the size of the card/set to create, max, the
+biggest number to create
+* internal data:
+-set is a blank list
+-fill that list with values from 1 to max val + 1
+-randomize the set
+-return the values at index from 1 to setSize (size squared)
+* output: a list of random numbers
+
 # 2.  Functional Examples
 
 
