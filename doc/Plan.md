@@ -1,6 +1,6 @@
 *Replace the bold text with your own content*
 
-*Adapted from https://htdp.org/2020-5-6/Book/part_preface.html*
+*Adapted from https://htdp.org/2020- 5- 6/Book/part_preface.html*
 
 # 0.  From Problem Analysis to Data Definitions
 
@@ -42,68 +42,68 @@ X
 ### Run()
 * Input: nothing
 * internal data
--print welcome message
--create menu object (local) with the header Main
--add the C option to the list of display options
--while we keep going, if the user enters C move on
--if keep going is false, close the program (sys.exit(1)?)
+- print welcome message
+- create menu object (local) with the header Main
+- add the C option to the list of display options
+- while we keep going, if the user enters C move on
+- if keep going is false, close the program (sys.exit(1)?)
 * output: prints welcome message, returns nothing
 
 ### __createDeck()
 * Input: nothing
 * internal Data:
--prompt the user for card size, max number on card, and 
+- prompt the user for card size, max number on card, and 
 number of cards
--for i in number of cards given, create a card object with 
+- for i in number of cards given, create a card object with 
 the user in put and i as idnum
--create a deck object with input from user. deck needs to 
+- create a deck object with input from user. deck needs to 
 be able to access the card objects
--call __deck menu to display the deck menu
+- call __deck menu to display the deck menu
 * Output: Nothing
 
 ### __deckMenu()
 * Input: nothing
 * Intternal Data: 
--create a menu object header Deck
--add the print, display, and save options to the menu options
--print out the apporpriate response based on the user input 
+- create a menu object header Deck
+- add the print, display, and save options to the menu options
+- print out the apporpriate response based on the user input 
 command.
 * Output: prints menu to user through other methods
 
 ### __printCard()
 * Input: nothing
 * INternal Data: 
--call __getnumberinpout to determine which index to print
+- call __getnumberinpout to determine which index to print
 * Output: calls a print method, returns nothing
 
 ### __saveDeck()
 * INput: nothing
 * Internal Data: 
--get the file name as a string from the user
--if no file name is given, display the menu again
--if there is a filename given, open file as "write"
--prints the current deck to the file 
--close the file
--tels the user it is done
+- get the file name as a string from the user
+- if no file name is given, display the menu again
+- if there is a filename given, open file as "write"
+- prints the current deck to the file 
+- close the file
+- tels the user it is done
 * Output: prints the deck to a file, returns nothing
 
 ### __getNumberInput(desc, int, numOfCards)
 * Input:  a string descriptor of what is beign returned, a 
 number, and the number of cards in the deck.
 * Internal Data: 
--print the description to prompt the user for input
--if the number input by the user is smaller than the
+- print the description to prompt the user for input
+- if the number input by the user is smaller than the
 number of cards given, return that id
--if its out of range (too big or less than 1) have the user
+- if its out of range (too big or less than 1) have the user
 try again
--NOT SURE WHAT SECOND ARGUMENT IS YET
+- NOT SURE WHAT SECOND ARGUMENT IS YET
 * Output: returns n integer, the id of the card to print
 
 ### __getStringInput(desc)
 * input: string to prompt the user for input of a file name
 * INternal Data: 
--use the desc to prompt the user for a  file name
--return that string
+- use the desc to prompt the user for a  file name
+- return that string
 * Outptu: string ( a file name)
 
 
@@ -111,21 +111,21 @@ try again
 ### getId()
 * INput: nothing
 * internal Data: 
--return the idnum
+- return the idnum
 * Ouput: idnum of the card
 
 ### getSize()
 * Input: nothing
 * internal Data: 
--return the card size (one dimension of the card)
+- return the card size (one dimension of the card)
 * Output: return size of the card
 
 ### print(file)
 * Input: optional name of a file (f not given, sys.out)
 * internal Data: 
--print the current card id to the file specified
--coe in the formatting for the card here
--if size is odd, add a free space
+- print the current card id to the file specified
+- coe in the formatting for the card here
+- if size is odd, add a free space
 * Output: prints a card to the file given
 
 
@@ -133,29 +133,29 @@ try again
 ### getCrdCount()
 * input: npthing
 * internal data: 
--return the cardcount variable
+- return the cardcount variable
 * output: return cardCount
 
 ### getCard(n)
 * Input: the card object that the user wants to print out
 * Internal Data: 
--card is initially none
--the number given is decreaseed by one to account for the 
+- card is initially none
+- the number given is decreaseed by one to account for the 
 list index
--if the number given is in the proper range, the card object
+- if the number given is in the proper range, the card object
 is taken from m cards, a list of the card objects in deck
--card is returned
+- card is returned
 * Output: returns card object to print out
 
 ### print(file, index)
 * Input: name of a file in string format, index of card to
 print
 * internal Data: 
--if indx is default, print out every card 
--assign card object to variable c
--call print on c
--print a new space
--if indx is not default, print only the specified card
+- if indx is default, print out every card 
+- assign card object to variable c
+- call print on c
+- print a new space
+- if indx is not default, print only the specified card
 
 
 ## Menu Class
@@ -164,58 +164,58 @@ print
 * Input: command (a single uppercase letter that represents a
 command) and a descripton (what the command does)
 * INternal Data: 
--if the fields are not left empty, add the tuple (comm,desc)
+- if the fields are not left empty, add the tuple (comm,desc)
 to the list of menu options(only availible to specific menu
 object)
--add one to the menu options count
+- add one to the menu options count
 * Output: nothing
 
 ### __isValidComand(command)
 * Input: command (single uppercase letter)
 * Internal Data: 
--set variable isValid to false
--if user selected X, its valid
--if not, check the command against the list of options.
--if the command is in that list, its valid
--return the value of isvalid (boolean)
+- set variable isValid to false
+- if user selected X, its valid
+- if not, check the command against the list of options.
+- if the command is in that list, its valid
+- return the value of isvalid (boolean)
 * Output: boolean is valid
 
 ### getOption(optionIndex)
 * Input: index integer, what option you want to test.
 * Internal Data: 
--initialize the option to none value
--if option index is in the proper range, the option is set
+- initialize the option to none value
+- if option index is in the proper range, the option is set
 to that index in the list of objects
--whether it's none or a value, option is returned
+- whether it's none or a value, option is returned
 * Output: returns whatever option ends up as. can be none
 
 ### getHeader()
 * Input: nothing
 * INternal Data:
--return the header string for this menu object
+- return the header string for this menu object
 * Output: header string returned
 
 ### getOptionCount()
 * Input: nothing
 * INternal Data:
--return the size of the option count for this menu object
+- return the size of the option count for this menu object
 * Output: option count as an integer is returned
 
 ### show()
 * input: nothing
 * INterna data:
--intialize a command and keepgoing variables to empty string
+- intialize a command and keepgoing variables to empty string
 and true
--while that keepgoing var is true, set local option list to
+- while that keepgoing var is true, set local option list to
 and empty string, print a newline and the header
--for the length of the menu objects option count, local 
+- for the length of the menu objects option count, local 
 option is ith entry of the self option list.
--if getting the option didn't return none, print the command
+- if getting the option didn't return none, print the command
 and its desc.
--add that command and x to the local command optionlist
--print the prompt for a command
--if the input is not in the command list (call isvalid)
--once a valid command is given, return that command
+- add that command and x to the local command optionlist
+- print the prompt for a command
+- if the input is not in the command list (call isvalid)
+- once a valid command is given, return that command
 * Ouput: prints options to user and returns command given.
 
 ## Menu Optoion CLass
@@ -223,61 +223,61 @@ and its desc.
 ### getCommand()
 * Input: nothing
 * Interal Data: 
--return the command given to the menu option object
+- return the command given to the menu option object
 * Output: returns single character command
 
 ### getDescription()
 * Input: nothing
 * Interal Data:
--return the description given to the menu option object
+- return the description given to the menu option object
 * Output: returns string of the description for the menu option
 
 ## Number Set Class
 
 ### NumberSet(size)
--The constructor needs to make a set of numbers in the range
+- The constructor needs to make a set of numbers in the range
 of the max given by the user
 ### getSize()
 * INput: nothing
 * internal data: 
--the number set is all of the numbers present on the card		
--getsize from Card, square it
+- the number set is all of the numbers present on the card		
+- getsize from Card, square it
 * Output: returns the number of numbers that can be in the NS
 
 ### get(index)
 * input: index, the number entry that you want the val of
 * Internal Data: 
--call CreateSet to get the list of random numebrs
--get the indexth entry from what createSet returns
+- call CreateSet to get the list of random numebrs
+- get the indexth entry from what createSet returns
 return that value
 * Output: returns the value of the indexth entry of a card
 
 ### randomize()
 * Input: nothing
 * internal Data: 
--for each index of the set, generate a random number and swap 
+- for each index of the set, generate a random number and swap 
 the value of the curretn index with that random index
 * OUtput: nothing
 
 ### getNext()
 * intput: nothing
 * internal data: 
--keep track of how many times its been called
--the number of times it's been called is the index of the set 
+- keep track of how many times its been called
+- the number of times it's been called is the index of the set 
 to return
--add a self. variable to the constructor and increase by one 
+- add a self. variable to the constructor and increase by one 
 every time getNext is called
--if that count goes above size^2, return none
+- if that count goes above size^2, return none
 * OUtput: an integer until the list is exhausted; then None
 
 ### createDeck(size, max)
 * input: size, the size of the card/set to create, max, the
 biggest number to create
 * internal data:
--set is a blank list
--fill that list with values from 1 to max val + 1
--randomize the set
--return the values at index from 1 to setSize (size squared)
+- set is a blank list
+- fill that list with values from 1 to max val + 1
+- randomize the set
+- return the values at index from 1 to setSize (size squared)
 * output: a list of random numbers
 
 # 2.  Functional Examples
@@ -342,8 +342,8 @@ problems should they return.**
 **If you didn't come across any bugs (lucky you!) think of a possible flaw and a
 test that can be employed to screen for it.**
 
-**At a minimum you should create a document explaining step-by-step how a
-non-technical user may manually test your program to satisfy themselves that it
+**At a minimum you should create a document explaining step- by- step how a
+non- technical user may manually test your program to satisfy themselves that it
 operates correctly.  Explain the entire process starting how to launch the
 program, what inputs they should give and what results they should see at every
 step.  Provide test cases of good and bad inputs to catch both false positives
