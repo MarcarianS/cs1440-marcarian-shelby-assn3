@@ -1,39 +1,39 @@
 
 # 0.  From Problem Analysis to Data Definitions
 
-create a deck of bingo cards, with number of cards based on user input and
-size based on user input.
-Design a user friendly manual and user interface. Manual will give instructions 
-on how to use each command. User interface will promt for those commands , 
-looping until the user gives valid input.
-The cards can't have the same number on them twice, and each card must be kept 
-according to its number so it can be called on again.
-The user must be able to print the deck ou tto the screen or a file, or a select 
-card to the screen.
+create a deck of bingo cards, with number of cards based on user input and\
+size based on user input.\
+Design a user friendly manual and user interface. Manual will give instructions \
+on how to use each command. User interface will promt for those commands , \
+looping until the user gives valid input.\
+The cards can't have the same number on them twice, and each card must be kept \
+according to its number so it can be called on again.\
+The user must be able to print the deck ou tto the screen or a file, or a select \
+card to the screen.\
 
 # 1.  System Analysis
 
 Main menu:\
 The user is presented with options \
-C will create a deck
-X will exit the program
+C will create a deck\
+X will exit the program\
 
-another menu from C
-enter card size
-maximum number present on card
-number of cards generated
+another menu from C\
+enter card size\
+maximum number present on card\
+number of cards generated\
 
-new menu
-P print a card
-	Must provide the number id of the card 
-	menu PDSX is displayed again
-D display the whole deck
-S save the deck to a file
-	Must provide a file name
-	will notify the user when finished
-X
-	deck is no longer remmebered in the program
-	takes you back tot the main menu
+new menu\
+P print a card\
+	Must provide the number id of the card \
+	menu PDSX is displayed again\
+D display the whole deck\
+S save the deck to a file\
+	Must provide a file name\
+	will notify the user when finished\
+X\
+	deck is no longer remmebered in the program\
+	takes you back tot the main menu\
 
 ## User Interface Class
 ### Run()
@@ -49,15 +49,21 @@ X
 ### __createDeck()
 * Input: nothing
 * internal Data:
-	- prompt the user for card size, max number on card, and 
+	- call getNumberInput() for card size, max number on card, and 
 number of cards
-	- for i in number of cards given, create a card object with 
-the user in put and i as idnum
 	- create a deck object with input from user. deck needs to 
 be able to access the card objects
 	- call __deck menu to display the deck menu
 * Output: Nothing
-
+* Function Stub: 
+cardSize = getNumberInput("enter card size", 3, 15)\
+max number = getnumberinput("enter max", cardSize x cardsize x 2, cardsize x cardsize x 4)\
+numCards = getnumebrinput("enter num of cards", 3, 10_000)\
+\
+m_currentdeck = Deck.Deck(cardSize, numCards, maxNumber)\
+\
+call __deckMenu()\
+\
 ### __deckMenu()
 * Input: nothing
 * Intternal Data: 
@@ -84,7 +90,7 @@ command.
 	- tels the user it is done
 * Output: prints the deck to a file, returns nothing
 
-### __getNumberInput(desc, min, numOfCards)
+### __getNumberInput(desc, min, max)
 * Input:  a string descriptor of what is beign returned, a 
 number, and the number of cards in the deck.
 * Internal Data: 
@@ -95,6 +101,16 @@ number of cards given, return that id
 try again
 	- use the second argument as a minimum that can be returned
 * Output: returns n integer, the id of the card to print
+* Function Stub: 
+notValid = true\
+while notValid\
+print(f"{desc} [{min} - {max}")\
+number = input()\
+if min <= number <= max\
+return number, notValid = false
+if not in correct range\
+print(f"please input number in the range [{min} - {max}\n")\
+\
 
 ### __getStringInput(desc)
 * input: string to prompt the user for input of a file name
@@ -102,7 +118,9 @@ try again
 	- use the desc to prompt the user for a  file name
 	- return that string
 * Outptu: string ( a file name)
-
+* Function Stub:
+print(f"{desc}")\
+return input()
 
 ## Card Class
 ### getId()
@@ -126,7 +144,57 @@ try again
 * Output: prints a card to the file given
 
 
+## CardPrinter Class
+### constructor
+
+### printEven(size, numberSet)
+* Input: size of the card (integer) and the number set(list of integers.
+* internal Data:
+	- to print the top border, print the following pattern 
+	- cardString = the first +
+	- for i in size string+= "-----+"
+	- string+= "\n"
+	- To print the rest of the card:
+	- for i in 0 - size
+	- string += "|"
+	- for j in 1 - size-1 string+= (" numberset(i *size + j)|")
+	- string+= "\n"
+	- Make sure the entry from number set is centered
+* Output: returns String containing card info to be printed
+* Function Stub: 
+
+### printOdd(size, numberset)
+* Input: size of the card and number set
+* Internal Data: 
+	- free space will be (size/2 + 1)^2
+
+
 ## Deck Class
+### Deck(cardSize, carDCount, numberMax)
+* Input: cardsize, card count, number max, all integers
+* Internal Data: 
+	- initialize self variables
+* Oupput: nothing
+* function Stub:
+self.cardSize = cardSize\
+self.cardCount = cardCount\
+self.numberMax = numberMax\
+self.__m_cards = []\
+
+### createDeck(cardSize, cardCount, numberMax)
+* Input: dimensions of the card, all integers
+* internal Data: 
+	- loop over the cardcount, creating a card object for each
+	- append the cards to m_cards[]
+	- Return the list of cards
+* Output: returns the list of cards
+* Function Stub: 
+for i in cardCount\
+card = Card.Card(i, self.cardSize, NumberSet.createDeck(self.Size, self.max)\
+m_cards.apend(card)\
+return m_cards\
+\
+
 ### getCrdCount()
 * input: npthing
 * internal data: 
@@ -240,7 +308,9 @@ of the max given by the user
 	- the number set is all of the numbers present on the card		
 	- getsize from Card, square it
 * Output: returns the number of numbers that can be in the NS
-
+* Function Stub : 
+return self.size^2\
+\
 ### get(index)
 * input: index, the number entry that you want the val of
 * Internal Data: 
@@ -248,13 +318,17 @@ of the max given by the user
 	- get the indexth entry from what createSet returns
 return that value
 * Output: returns the value of the indexth entry of a card
-
-### randomize()
+* Function stub:
+numberSet = createSet(self.size, self.max)\
+return numberset[index]\
+\
+### randomize(numberSet)
 * Input: nothing
 * internal Data: 
-	- for each index of the set, generate a random number and swap 
-the value of the curretn index with that random index
+	- use random.shuffle(list) to shuffle the list
 * OUtput: nothing
+* Function Stub: 
+return random.shuffle(numberSet)
 
 ### getNext()
 * intput: nothing
@@ -267,7 +341,7 @@ every time getNext is called
 	- if that count goes above size^2, return none
 * OUtput: an integer until the list is exhausted; then None
 
-### createDeck(size, max)
+### createSet(size, max)
 * input: size, the size of the card/set to create, max, the
 biggest number to create
 * internal data:

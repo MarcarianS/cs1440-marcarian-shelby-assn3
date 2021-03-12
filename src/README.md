@@ -13,3 +13,8 @@ this:
     Ran 4 tests in 0.000s
 
     OK
+
+
+# Shelby's Notes:
+- Used Geeks4Geeks to remind myself how to construct a shuffling agorithm for\
+NumberSet.randomize().\
