@@ -147,8 +147,8 @@ return input()
 ## CardPrinter Class
 ### constructor
 
-### printEven(size, numberSet)
-* Input: size of the card (integer) and the number set(list of integers.
+### printEven()
+* Input: nothing
 * internal Data:
 	- to print the top border, print the following pattern 
 	- cardString = the first +
@@ -162,11 +162,13 @@ return input()
 	- Make sure the entry from number set is centered
 * Output: returns String containing card info to be printed
 * Function Stub: 
-
-### printOdd(size, numberset)
-* Input: size of the card and number set
+Follow internal Data above\
+\
+### printOdd()
+* Input: nothing
 * Internal Data: 
 	- free space will be (size/2 + 1)^2
+	- follow layout for even card, checking that each iteration is not the free space
 
 
 ## Deck Class
@@ -181,7 +183,7 @@ self.cardCount = cardCount\
 self.numberMax = numberMax\
 self.__m_cards = []\
 
-### createDeck(cardSize, cardCount, numberMax)
+### createDeck()
 * Input: dimensions of the card, all integers
 * internal Data: 
 	- loop over the cardcount, creating a card object for each
@@ -299,9 +301,11 @@ and its desc.
 
 ## Number Set Class
 
-### NumberSet(size)
-	- The constructor needs to make a set of numbers in the range
-of the max given by the user
+### NumberSet(size, max)
+- self.size = size
+- self.max = max
+- self.numberList = []
+- self.getNextCounter = 0
 ### getSize()
 * INput: nothing
 * internal data: 
@@ -322,7 +326,7 @@ return that value
 numberSet = createSet(self.size, self.max)\
 return numberset[index]\
 \
-### randomize(numberSet)
+### randomize()
 * Input: nothing
 * internal Data: 
 	- use random.shuffle(list) to shuffle the list
@@ -340,85 +344,36 @@ to return
 every time getNext is called
 	- if that count goes above size^2, return none
 * OUtput: an integer until the list is exhausted; then None
+* Function Stub: 
+counter += 1\
+if counter >maxNumber, return None\
+else, return counter - 1 entry from numberSet list
 
-### createSet(size, max)
+### createSet()
 * input: size, the size of the card/set to create, max, the
 biggest number to create
 * internal data:
-	- set is a blank list
-	- fill that list with values from 1 to max val + 1
+	- fill numberlist with values from 1 to max val + 1
 	- randomize the set
 	- return the values at index from 1 to setSize (size squared)
 * output: a list of random numbers
-
+* Function Stub: 
+for i in range(max + 1)\
+numberList.append(i)\
+self.randomize(numberList)\
+return numberList[0:size^2 + 1]\
+\
 # 2.  Functional Examples
 
-
-**Design a process for obtaining the output from the input.  Consider both *good*
-and *bad* inputs.  Find or create examples of both kinds of input.**
-
-**Work out problem examples on paper, on a whiteboard or some other medium that
-is *not* your computer.  It is a mistake to begin writing executable code
-before you thoroughly understand what form the algorithm(s) must take.**
-
-**Instead, describe components of the system in *"pseudocode"*.  Expect to make
-lots of mistakes at this point.  You will find that it is much easier to throw
-away pseudocode than real code.**
-
-**Manually work through several examples that illustrate the program's overall
-purpose, as well as the purpose of each component of the finished system.  You
-will converge on a correct solution much faster if you feel comfortable making
-mistakes as you go.**
-
-**This phase involves the use of many levels of abstraction to decompose the
-problem into manageable components, and design strategies for implementing each
-component.  Components may be functions, modules or classes.**
 
 
 # 3.  Function Template
 
-**Combine the function stubs written in step #2 with pseudocode from step #3.
-Comment out the pseudocode, leaving a valid program that compiles/runs without
-errors.  At this stage your program doesn't quite work, but it also doesn't
-crash.**
 
 
 # 4.  Implementation
 
-**This is the only part of the process focused on writing code in your chosen
-programming language.**
-
-**One by one translate passages of pseudocode into valid code.  Fill in the gaps
-in the function template.  Exploit the purpose statement and the examples.**
-
-**If you were thorough in the previous steps and are familiar with your
-programming system this part will go by very quickly and the code will write
-itself.**
-
-**When you are learning a new programming language or an unfamiliar library this
-phase can be slow and difficult.  As you gain experience with the relevant
-technologies you will spend less and less time in this phase of the process.**
 
 
 # 5.  Testing
 
-**Articulate the examples given in step #2 as tests and ensure that each
-function passes all of its tests.  Doing so discovers mistakes.  Tests also
-supplement examples in that they help others read and understand the definition
-when the need arises—and it will arise for any serious program.**
-
-**As bugs are discovered and fixed, devise new test cases that will detect these
-problems should they return.**
-
-**If you didn't come across any bugs (lucky you!) think of a possible flaw and a
-test that can be employed to screen for it.**
-
-**At a minimum you should create a document explaining step- by- step how a
-non- technical user may manually test your program to satisfy themselves that it
-operates correctly.  Explain the entire process starting how to launch the
-program, what inputs they should give and what results they should see at every
-step.  Provide test cases of good and bad inputs to catch both false positives
-and false negatives.  Any deviation from the expected outputs are errors.**
-
-**The ideal is to write an automated test to avoid all manual labor beyond
-launching the test.**
