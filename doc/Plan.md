@@ -16,12 +16,12 @@ card to the screen.\
 Main menu:\
 The user is presented with options \
 C will create a deck\
-X will exit the program\
+X will exit the program
 
 another menu from C\
 enter card size\
 maximum number present on card\
-number of cards generated\
+number of cards generated
 
 new menu\
 P print a card\
@@ -33,7 +33,7 @@ S save the deck to a file\
 	will notify the user when finished\
 X\
 	deck is no longer remmebered in the program\
-	takes you back tot the main menu\
+	takes you back tot the main menu
 
 ## User Interface Class
 ### Run()
@@ -63,7 +63,7 @@ numCards = getnumebrinput("enter num of cards", 3, 10_000)\
 m_currentdeck = Deck.Deck(cardSize, numCards, maxNumber)\
 \
 call __deckMenu()\
-\
+
 ### __deckMenu()
 * Input: nothing
 * Intternal Data: 
@@ -110,7 +110,7 @@ if min <= number <= max\
 return number, notValid = false
 if not in correct range\
 print(f"please input number in the range [{min} - {max}\n")\
-\
+
 
 ### __getStringInput(desc)
 * input: string to prompt the user for input of a file name
@@ -138,14 +138,12 @@ return input()
 ### print(file)
 * Input: optional name of a file (f not given, sys.out)
 * internal Data: 
-	- print the current card id to the file specified
-	- coe in the formatting for the card here
-	- if size is odd, add a free space
+	- if size is odd, call CardPrinter.printOdd()
+	- if even, CardPrinter.printEven()
 * Output: prints a card to the file given
 
 
 ## CardPrinter Class
-### constructor
 
 ### printEven()
 * Input: nothing
@@ -163,7 +161,7 @@ return input()
 * Output: returns String containing card info to be printed
 * Function Stub: 
 Follow internal Data above\
-\
+
 ### printOdd()
 * Input: nothing
 * Internal Data: 
@@ -181,7 +179,7 @@ Follow internal Data above\
 self.cardSize = cardSize\
 self.cardCount = cardCount\
 self.numberMax = numberMax\
-self.__m_cards = []\
+self.__m_cards = []
 
 ### createDeck()
 * Input: dimensions of the card, all integers
@@ -195,7 +193,7 @@ for i in cardCount\
 card = Card.Card(i, self.cardSize, NumberSet.createDeck(self.Size, self.max)\
 m_cards.apend(card)\
 return m_cards\
-\
+
 
 ### getCrdCount()
 * input: npthing
@@ -314,7 +312,7 @@ and its desc.
 * Output: returns the number of numbers that can be in the NS
 * Function Stub : 
 return self.size^2\
-\
+
 ### get(index)
 * input: index, the number entry that you want the val of
 * Internal Data: 
@@ -325,7 +323,7 @@ return that value
 * Function stub:
 numberSet = createSet(self.size, self.max)\
 return numberset[index]\
-\
+
 ### randomize()
 * Input: nothing
 * internal Data: 
@@ -362,11 +360,141 @@ for i in range(max + 1)\
 numberList.append(i)\
 self.randomize(numberList)\
 return numberList[0:size^2 + 1]\
-\
+
 # 2.  Functional Examples
 
+## User Interface Class
+
+### __createDeck()
+```cardSize = getNumberInput("Enter card size ", 3, 15)
+maxNumber = gerNumberInput("Enter max number ", cardSize * cardSIze * 2, cardSize * cardSize * 4)
+numCards = getNumberInput("Enter number of cards ", 3, 10000)
+
+m_currentDeck = Deck.Deck(cardSize, numCards, maxNumber)
+
+__deckMenu()``
+
+### __getNumberInput(description, min, max)
+```notValid = True
+while notValid:
+	print(f"{descripction} [{min} {max}]")
+	number = input()
+	if min <= number <= max
+		notValid = false
+		return number
+	print(f"Please input a number in the range [{min} - {max}]")```
+
+### __getStringInput(description)
+```print(f"{description}")
+return input()```
 
 
+## Card Class
+
+### Card(idnum, cardSize, numberSet)
+```
+self.__idnum = idnum
+self.__cardSize = cardSize
+self.__numberSet = numberSet
+```
+
+### print(file)
+```if self.cardSize % 2 == 0
+	print(CardPrinter.printEven(self.cardSize), file=file)
+else
+	print(CardPrinter.printOdd(self.cardSize), file=file)```
+
+
+## Card Printer Class
+
+### Card(idnum, cardSize, numberSet)
+```
+self.__idnum = idnum
+self.__cardSize = cardSize
+self.__numberSet = numberSet
+```
+### printEven(cardSize)
+```cardString = "+"
+for i in cardSize
+	cardString += "-----+"
+cardString += "\n"
+for i in range(0, cardSize)
+	cardString ++ "| "
+	for j in range(1, cardSize - 1)
+		cardString += str("{:^5}".format(numberSet[i * cardSize + j]))
+		cardString += "|"
+	cardString ++ "\n"
+return cardString		
+```
+
+### printOdd(cardSize)
+```cardString = "+"
+for i in cardSize
+        cardString += "-----+"
+cardString += "\n"
+for i in range(0, cardSize)
+        cardString ++ "| "
+        for j in range(1, cardSize - 1)
+		if numberSet[i * cardSize + j] == (cardSize / 2 + 1) ^ 2
+			cardString += "{:^5}".format("FREE")
+		else
+                	cardString += str("{:^5}".format(numberSet[i * cardSize + j]))
+                cardString += "|"
+        cardString += "\n"
+return cardString
+```
+
+## Deck Class
+### Deck(cardSize, cardCount, numberMax)
+```
+self.cardSize = cardSize
+self.cardCount = cardCount
+self.numberMax = numberMax
+self.__m_cards = createDeck()
+```
+
+### createDeck()
+```
+cards = []
+for i in range(cardcount)
+	card = Card.Card(i, self.cardSize, NumberSet.NumberSet(self.size, self.max))
+	cards.append(card)
+return cards
+```
+
+
+## Number Set Class
+### NumberSet(cardSize, max)
+```
+self.__cardSize = cardSize
+self.__max = max
+self.numberSet = createSet()
+self.__getNextCounter = 0
+```
+### get(index)
+```
+return self.numberSet[index]
+```
+
+### randomize(setToRandomize)
+```
+return random.shuffle(setToRandomize)
+```
+
+### getNext()
+```
+self.__counter += 1
+if self.__counter > maxNumber
+	return None
+return self.numberSet[counter - 1]
+```
+
+### createSet()
+```
+aNumberSet = list(range(1, max + 1)
+randomize(aNumberSet)
+return aNumberSet[0:self.__cardSize^2 + 1]
+```
 # 3.  Function Template
 
 
