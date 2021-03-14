@@ -38,3 +38,34 @@ really see anything else that I would change, I really also like your use of
 the arrows like Erik talked about in the lecture today, adding that sense of 
 direction to the diagram is super helpful and makes it a lot easier to read. 
 Great job!
+I think your UML is off to a great start! I can see that you've documented 
+the starter code effectively and added some new methods of your own to fill 
+in the gaps that were present. Your UML is also legible, each of your classes 
+are named correctly, and you included association and dependency arrows to 
+match your code. Nice work! This leads me to believe that you have a good 
+understanding of how the starter code works, and you have some sort of plan 
+on how to implement this program! 
+However, there are a few small things I am noticing that could be improved on. 
+First of all, there are some typos in your UML. In the UserInterface class, 
+-getNumberInput has "iteget" instead of "integer", and -getStringInput has 
+is spelled "INput" on accident, but those are pretty easy things to fix. 
+Secondly, whenever you specify an array, if I understand UML correctly, I 
+believe it needs to be typed like so: type[]. This can be an int, string, 
+bool, or even an object of another class as the type of array. Take a closer 
+look at the options array and m_cards array, as those are likely to be 
+comprised of objects of a different class (if you are following the starter 
+code closely...if you aren't doing that, then please disregard what I said!). 
+Third of all, if you have no data fields in your UserInterface class, instead 
+of typing "None", if I understand UML correctly, I think you can simply leave 
+it blank.
+It also might be beneficial to denote how many objects are creating / being 
+created by other objecst using multiplicity constraints.
+Again, you may be solving this program differently than me, but if you are 
+mostly going off of the starter code, I do not think UserInterface and 
+NumberSet are supposed to connect directly. The starter code uses a different 
+class as a sort of middle-man between the UserInterface class and the NumberSet, 
+so try to take a closer look at that!
+One final thing: in your card class, I think you forgot to specify what parameters 
+print() can take. You did it correctly in the Deck class, so try to replicate that! 
+Alright, I'm sorry if I got a bit nitpicky, but I do think you are off to a great 
+start! Good job so far!
