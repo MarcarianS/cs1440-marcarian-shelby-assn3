@@ -2,7 +2,7 @@ import random
 
 
 class NumberSet():
-    def __init__(self, size):
+    def __init__(self, size, max):
         """NumberSet constructor"""
         pass
 

@@ -23,13 +23,29 @@ class UserInterface():
             elif command == "X":
                 keepGoing = False
 
+    def __getNumberInput(self, description, min, max):
+        notValid = True
+        while notValid:
+            print(f"{description} [{min} - {max}]")
+            number = input()
+            if min <= number <= max:
+                return int(number)
+            print(f"Please input a number in the range [{min} - {max}]")
+
+    def __getStringInput(self, description):
+        print(description)
+        return input()
+
     def __createDeck(self):
         """Command to create a new Deck"""
-        # TODO: Get the user to specify the card size, max number, and number of cards
+        cardSize = self.__getNumberInput("Enter card size ", 3, 15)
+        maxNumber = self.__getNumberInput("Enter max number", (cardSize ^ 2) * 2, (cardSize ^ 2) * 4)
+        numCards = self.__getNumberInput("Enter number of cards ", 3, 10000)
 
-        # TODO: Create a new deck
+        self.__m_currentDeck = Deck.Deck(cardSize, numCards, maxNumber)
 
-        # TODO: Display a deck menu and allow use to do things with the deck
+        self.__deckMenu()
+
         pass
 
     def __deckMenu(self):
@@ -61,10 +77,14 @@ class UserInterface():
 
     def __saveDeck(self):
         """Command to save a deck to a file"""
-        fileName = self.__getStringInput("Enter output file name")
-        if fileName != "":
-            # TODO: open a file and pass to currentDeck.print()
-            outputStream = open(fileName, 'w')
-            self.__m_currentDeck.print(outputStream) # This now belongs to the individual class object
-            outputStream.close()
-            print("Done!")
+        keepGoing = True
+        while keepGoing:
+            fileName = self.__getStringInput("Enter output file name")
+            if fileName != "":
+                outputStream = open(fileName, 'w')
+                self.__m_currentDeck.print(outputStream) # This now belongs to the individual class object
+                outputStream.close()
+                print("Done!")
+                keepGoing = False
+            
+

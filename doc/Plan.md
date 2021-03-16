@@ -407,13 +407,11 @@ else
 
 ## Card Printer Class
 
-### Card(idnum, cardSize, numberSet)
+### CardPrinter(cardSize)
 ```
-self.__idnum = idnum
 self.__cardSize = cardSize
-self.__numberSet = numberSet
 ```
-### printEven(cardSize)
+### printEven(cardSize, numberSet)
 ```cardString = "+"
 for i in cardSize
 	cardString += "-----+"
@@ -427,7 +425,7 @@ for i in range(0, cardSize)
 return cardString		
 ```
 
-### printOdd(cardSize)
+### printOdd(cardSize, numberSet)
 ```cardString = "+"
 for i in cardSize
         cardString += "-----+"
@@ -435,7 +433,7 @@ cardString += "\n"
 for i in range(0, cardSize)
         cardString ++ "| "
         for j in range(1, cardSize - 1)
-		if numberSet[i * cardSize + j] == (cardSize / 2 + 1) ^ 2
+		if (i * cardSize + j) == (cardSize / 2 + 1) ^ 2
 			cardString += "{:^5}".format("FREE")
 		else
                 	cardString += str("{:^5}".format(numberSet[i * cardSize + j]))

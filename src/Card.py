@@ -1,6 +1,7 @@
 import sys
 
 import NumberSet
+import CardPrinter
 
 
 class Card():
@@ -26,4 +27,8 @@ class Card():
     def print(self, file=sys.stdout):
         """void function:
         Prints a card to the screen or to an open file object"""
+        if self.__size % 2 == 0:
+            print(CardPrinter.printEven(self.__size, self.__numberSet), file=file)
+        else :
+            print(CardPrinter.printOdd(self.__size, self.__numberSet), file=file)
         pass
