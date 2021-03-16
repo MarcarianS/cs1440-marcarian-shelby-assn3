@@ -5,8 +5,8 @@ import NumberSet
 
 class TestCard(unittest.TestCase):
     def setUp(self):
-        self.card = Card.Card(0, 3, NumberSet.NumberSet(18))
-        self.card1 = Card.Card(0, 0, NumberSet.NumberSet(0))
+        self.card = Card.Card(0, 3, NumberSet.NumberSet(3, 18))
+        self.card1 = Card.Card(0, 0, NumberSet.NumberSet(0, 0))
 
     def test_getSize(self):
         self.assertEqual(self.card.getSize(), 3)
@@ -18,6 +18,8 @@ class TestCard(unittest.TestCase):
         self.assertEqual(self.card.getId(), 0)
         self.assertEqual(self.card1.getId(), 0)
 
+    def test_printCard(self):
+        self.assertIsNotNone(self.card.printCard(3, self.card._Card__numberSet))
 
 if __name__ == '__main__':
     unittest.main()

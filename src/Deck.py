@@ -15,10 +15,14 @@ class Deck():
 
     def createDeck(self):
         cards = []
-        for i in self.__m_cardCount:
+        for i in range(self.__m_cardCount):
             card = Card.Card(i, self.__m_cardSize, NumberSet.NumberSet(self.__m_cardSize, self.__m_numberMax))
+            cards.append(card)
+        return cards
+
     def getCardCount(self):
         """Return an integer: the number of cards in this deck"""
+        return self.__m_cardCount
         pass
 
     def getCard(self, n):

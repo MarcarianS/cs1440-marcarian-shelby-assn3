@@ -19,7 +19,7 @@ class UserInterface():
         while keepGoing:
             command = menu.show()
             if command == "C":
-                pass
+                self.__createDeck()
             elif command == "X":
                 keepGoing = False
 
@@ -27,7 +27,7 @@ class UserInterface():
         notValid = True
         while notValid:
             print(f"{description} [{min} - {max}]")
-            number = input()
+            number = int(input())
             if min <= number <= max:
                 return int(number)
             print(f"Please input a number in the range [{min} - {max}]")
@@ -39,7 +39,7 @@ class UserInterface():
     def __createDeck(self):
         """Command to create a new Deck"""
         cardSize = self.__getNumberInput("Enter card size ", 3, 15)
-        maxNumber = self.__getNumberInput("Enter max number", (cardSize ^ 2) * 2, (cardSize ^ 2) * 4)
+        maxNumber = self.__getNumberInput("Enter max number", pow(cardSize, 2) * 2, pow(cardSize, 2) * 4)
         numCards = self.__getNumberInput("Enter number of cards ", 3, 10000)
 
         self.__m_currentDeck = Deck.Deck(cardSize, numCards, maxNumber)
@@ -86,5 +86,5 @@ class UserInterface():
                 outputStream.close()
                 print("Done!")
                 keepGoing = False
-            
+
 
