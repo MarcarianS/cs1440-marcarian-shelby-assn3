@@ -3,15 +3,13 @@ import Menu
 
 
 class UserInterface():
-    #Implies can be constructed
-    # there can bea  single ui obj that is independent from other ui obj
+
     def __init__(self):
         pass
-    # this method will modify the specific ui obj one at a time
+
     def run(self):
         """Present the main menu to the user and repeatedly prompt for a valid command"""
         print("Welcome to the Bingo! Deck Generator\n")
-        # local variable, only belongs to run(). self would make the variable belong to the object
         menu = Menu.Menu("Main")
         menu.addOption("C", "Create a new deck")
         
@@ -26,14 +24,14 @@ class UserInterface():
     def __getNumberInput(self, description, min, max):
         notValid = True
         while notValid:
-            print(f"{description} [{min} - {max}]")
+            print(f"\n{description} [{min} - {max}]")
             number = int(input())
             if min <= number <= max:
                 return int(number)
-            print(f"Please input a number in the range [{min} - {max}]")
+            print(f"Please input a number in the range [{min} - {max}]\n")
 
     def __getStringInput(self, description):
-        print(description)
+        print(f"\n{description}")
         return input()
 
     def __createDeck(self):
@@ -46,7 +44,6 @@ class UserInterface():
 
         self.__deckMenu()
 
-        pass
 
     def __deckMenu(self):
         """Present the deck menu to user until a valid selection is chosen"""
@@ -82,7 +79,7 @@ class UserInterface():
             fileName = self.__getStringInput("Enter output file name")
             if fileName != "":
                 outputStream = open(fileName, 'w')
-                self.__m_currentDeck.print(outputStream) # This now belongs to the individual class object
+                self.__m_currentDeck.print(outputStream)
                 outputStream.close()
                 print("Done!")
                 keepGoing = False

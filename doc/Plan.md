@@ -405,42 +405,27 @@ else
 	print(CardPrinter.printOdd(self.cardSize), file=file)```
 
 
-## Card Printer Class
-
-### CardPrinter(cardSize)
-```
-self.__cardSize = cardSize
-```
-### printEven(cardSize, numberSet)
+### printCard(cardSize, numberSet)
 ```cardString = "+"
 for i in cardSize
 	cardString += "-----+"
 cardString += "\n"
 for i in range(0, cardSize)
 	cardString ++ "| "
-	for j in range(1, cardSize - 1)
-		cardString += str("{:^5}".format(numberSet[i * cardSize + j]))
+	for j in range(0, cardSize)
+		if size is odd and i * size + j = size^2 / 2
+			print free
+		else:	
+			cardString += str("{:^5}".format(numberSet[i * cardSize + j]))
 		cardString += "|"
 	cardString ++ "\n"
+	cardString += "+"
+	for k in range(size)
+		cardString += "-----+"
+	cardString += "\n"
 return cardString		
 ```
 
-### printOdd(cardSize, numberSet)
-```cardString = "+"
-for i in cardSize
-        cardString += "-----+"
-cardString += "\n"
-for i in range(0, cardSize)
-        cardString ++ "| "
-        for j in range(1, cardSize - 1)
-		if (i * cardSize + j) == (cardSize / 2 + 1) ^ 2
-			cardString += "{:^5}".format("FREE")
-		else
-                	cardString += str("{:^5}".format(numberSet[i * cardSize + j]))
-                cardString += "|"
-        cardString += "\n"
-return cardString
-```
 
 ## Deck Class
 ### Deck(cardSize, cardCount, numberMax)
@@ -502,4 +487,19 @@ return aNumberSet[0:self.__cardSize^2 + 1]
 
 
 # 5.  Testing
+
+Create decks of all sizes out of bounds - passed
+
+Create cards of all size - failed
+
+	FREE spot was in the wrong spot for anything bigger than 3
+
+	Updated the logic for checking for the free spot - fixed
+
+Print all cards to the screen with D - passed
+
+Print a single card at a time with P - passed
+
+Save decks of different sizes - passed
+
 

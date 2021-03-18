@@ -11,7 +11,7 @@ class Deck():
         self.__m_cardCount = cardCount
         self.__m_numberMax = numberMax
         self.__m_cards = self.createDeck()
-        pass
+        # pass
 
     def createDeck(self):
         cards = []
@@ -23,7 +23,7 @@ class Deck():
     def getCardCount(self):
         """Return an integer: the number of cards in this deck"""
         return self.__m_cardCount
-        pass
+
 
     def getCard(self, n):
         """Return card N from the deck"""
