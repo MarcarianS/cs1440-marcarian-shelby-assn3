@@ -28,6 +28,16 @@ class TestDeck(unittest.TestCase):
         self.assertIsNot(self.deck._Deck__m_cards[1], self.deck.getCard(3))
         self.assertIsNot(self.deck._Deck__m_cards[2], self.deck.getCard(1))
 
+    def test_createDeck(self):
+        # This checks that a list of some size is generated for deck, and an empty list for deck1
+        self.assertNotEqual(self.deck.createDeck(), [])
+        self.assertEqual(self.deck1.createDeck(), [])
+
+        # This checks that the proper sized list is created when values are given.
+        self.assertEqual(len(self.deck.createDeck()), 3)
+
+
+
 
 if __name__ == '__main__':
     unittest.main()

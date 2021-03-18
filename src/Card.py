@@ -28,7 +28,7 @@ class Card():
         """void function:
         Prints a card to the screen or to an open file object"""
         # if self.__size % 2 == 0:
-        print(self.printCard(self.__size, self.__numberSet.numberSet), file=file)
+        print(self.__printCard(self.__size, self.__numberSet.numberSet), file=file)
         # else:
         #     print(self.printOdd(self.__size, self.__numberSet.numberSet), file=file)
 
@@ -45,7 +45,7 @@ class Card():
     #         cardString += "\n\n"
     #     return cardString
 
-    def printCard(self, size, numberSet):
+    def __printCard(self, size, numberSet):
         cardString = "+"
         for i in range(size):
             cardString += "-----+"

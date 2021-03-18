@@ -10,3 +10,6 @@
 | March 13  | finished psuedocode
 | March 14  | No work
 | March 15  | Begin implementation
+| March 16  | Finish implementation, begin adjusting unit tests
+| March 17  | Finish adjusting unit tests, update plan and UML to accurately reflect final code
+

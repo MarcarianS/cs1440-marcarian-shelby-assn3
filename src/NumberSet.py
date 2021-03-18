@@ -7,7 +7,7 @@ class NumberSet():
         self.__size = pow(size, 2)
         self.__max = max
         self.numberSet = self.__createSet()
-        # self.__getNextCounter = 0
+        self.__getNextCounter = 0
         pass
 
     def __createSet(self):
@@ -20,21 +20,21 @@ class NumberSet():
         return self.__size
         pass
 
-    # def get(self, index):
-    #     """Return an integer: get the number from this NumberSet at an index"""
-    #     return self.numberSet[index]
-    #     pass
+    def get(self, index):
+        """Return an integer: get the number from this NumberSet at an index"""
+        return self.numberSet[index]
+        pass
 
     def randomize(self, aNumberSet):
         """void function: Shuffle this NumberSet"""
         return random.shuffle(aNumberSet)
         pass
 
-    # def getNext(self):
-    #     """Return an integer: when called repeatedly return successive values
-    #     from the NumberSet until the end is reached, at which time 'None' is returned"""
-    #     self.__getNextCounter += 1
-    #     if self.__getNextCounter > self.__max:
-    #         return None
-    #     return self.numberSet[self.__getNextCounter - 1]
-    #     pass
+    def getNext(self):
+        """Return an integer: when called repeatedly return successive values
+        from the NumberSet until the end is reached, at which time 'None' is returned"""
+        self.__getNextCounter += 1
+        if self.__getNextCounter > self.__max:
+            return None
+        return self.numberSet[self.__getNextCounter - 1]
+        pass

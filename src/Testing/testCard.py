@@ -18,8 +18,7 @@ class TestCard(unittest.TestCase):
         self.assertEqual(self.card.getId(), 0)
         self.assertEqual(self.card1.getId(), 0)
 
-    def test_printCard(self):
-        self.assertIsNotNone(self.card.printCard(3, self.card._Card__numberSet))
+
 
 if __name__ == '__main__':
     unittest.main()
