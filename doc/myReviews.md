@@ -38,6 +38,8 @@ really see anything else that I would change, I really also like your use of
 the arrows like Erik talked about in the lecture today, adding that sense of 
 direction to the diagram is super helpful and makes it a lot easier to read. 
 Great job!
+
+
 I think your UML is off to a great start! I can see that you've documented 
 the starter code effectively and added some new methods of your own to fill 
 in the gaps that were present. Your UML is also legible, each of your classes 
@@ -69,3 +71,30 @@ One final thing: in your card class, I think you forgot to specify what paramete
 print() can take. You did it correctly in the Deck class, so try to replicate that! 
 Alright, I'm sorry if I got a bit nitpicky, but I do think you are off to a great 
 start! Good job so far!
+
+
+It looks like you did a very thorough job on your UML diagram.
+The Navigability specifications by your association and dependency arrows make 
+your daigram easy to read and understand.
+The first thing that jumps to my attention about your UML diagram is that the 
+UserInterface class creates a NumberSet object.
+Although the source code didn't seem to to do this, you may have other plans. 
+It was to my understanding that the Deck and Card classes created and used the 
+NumberSet class but again, if that's your plan there's nothing wrong with that.
+Including + and - before data members and operations provides a layout for your
+UML diagram that makes it easier to read. Gret job including those.
+I noticed that in many of your classes you have the initializer included in the 
+operations, although the in-class examples didn't include this and I think Erik 
+said something about it.
+Including it clarifies members that are defined in the initializer and variables 
+that are dependent upon the input of the function.
+On the other side of the spectrum is including them when they are redundant such 
+as when each input term is used as a data member also.
+I think you hit the perfect balance between including them and ommiting them, 
+well done!
+This may be a little unrelated and or unessesary in your UML diagram but from my 
+beginers perspective on UML diagrams it seems like setting up the diagram starting 
+at the top center makes the most sense. Then all the classes that it uses are 
+underneath or the the sides. This directs the eye and makes the diagram easy to 
+read. I'll need to take a bit of my own advice in this case!
+Great job, I hope you do well on your final program!
